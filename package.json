@@ -1,0 +1,48 @@
+{
+  "name": "minha-agenda",
+  "version": "0.0.1",
+  "description": "A desktop application for personal control and organization",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crisrochadev/minha-agenda.git"
+  },
+  "keywords": [
+    "app",
+    "desktop",
+    "schedule",
+    "electron"
+  ],
+  "author": "crisrochadev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crisrochadev/minha-agenda/issues"
+  },
+  "homepage": "https://github.com/crisrochadev/minha-agenda#readme",
+  "dependencies": {
+    "@tiptap/core": "^2.0.0-beta.182",
+    "@tiptap/extension-bubble-menu": "^2.0.0-beta.61",
+    "@tiptap/starter-kit": "^2.0.0-beta.191",
+    "ckeditor": "^4.12.1",
+    "electron": "^20.0.1",
+    "fullcalendar": "^5.11.2",
+    "jodit": "^3.19.4",
+    "jquery": "^3.6.0",
+    "js-datepicker": "^5.18.0",
+    "jsdom": "^20.0.0",
+    "knex": "^2.2.0",
+    "moment": "^2.29.4",
+    "sqlite3": "^5.0.11",
+    "sweetalert2": "^11.4.26",
+    "vue": "^3.2.37",
+    "vue-calendar-3": "^1.3.7"
+  },
+  "devDependencies": {
+    "electron-reloader": "^1.2.3",
+    "vanilla-select": "^1.0.25",
+    "vanillajs-datepicker": "^1.2.0"
+  }
+}

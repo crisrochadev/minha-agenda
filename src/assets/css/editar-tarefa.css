@@ -1,0 +1,91 @@
+.swal-title,
+.swal-text {
+    font-size: 12px;
+    color: var(--primary-color);
+    font-family: Quiksand;
+    font-weight: 900;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.swal-title.title-delete {
+    font-size: 25px;
+}
+
+.swal2-popup {
+    width: 90% !important;
+    height: 290px !important;
+}
+
+.swal-content-1,
+.swal-content-2 {
+    font-size: 12px;
+    padding: 10px;
+    border: 1px solid var(--grey-color);
+    height: 60px;
+    overflow-x: auto;
+}
+
+.swal-content-1.content-delete {
+    height: 200px;
+    font-size: 16px;
+}
+
+.swal-content-1 header,
+.swal-content-2 header {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    font-size: 10px;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid var(--grey-color);
+    margin-bottom: 5px;
+}
+
+.swal-content-1 header .swal-time,
+.swal-content-1 header .swal-date,
+.swal-content-2 header .swal-time,
+.swal-content-2 header .swal-date {
+    color: var(--primary-color);
+}
+
+.swal-content-1 header p:first-child span,
+.swal-content-2 header div:first-child span {
+    margin-left: 10px;
+}
+
+.swal-content-1 header .swal-time span,
+.swal-content-1 header .swal-date span,
+.swal-content-2 header .swal-time span,
+.swal-content-2 header .swal-date span {
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+.swal2-icon {
+    border: 1px solid var(--primary-color) !important;
+    width: 25px !important;
+    height: 25px !important;
+    color: var(--primary-color) !important;
+}
+
+.swal2-icon-content {
+    font-size: 18px !important;
+    padding: 10px !important;
+}
+
+.swal2-actions button {
+    width: 80px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+    padding: 0 !important;
+}
+
+.swal2-actions {
+    margin: 0 !important;
+}
+
+.swal2-html-container {
+    height: 170px !important;
+}

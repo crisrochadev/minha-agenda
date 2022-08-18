@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Oleo Script Bold;
+    src: url('../fonts/OleoScriptSwashCaps-Bold.ttf');
+}
+
+@font-face {
+    font-family: Dank Mono;
+    src: url('../fonts/DankMono-Regular.otf');
+}
+
+@font-face {
+    font-family: Oleo Script;
+    src: url('../fonts/OleoScriptSwashCaps-Regular.ttf');
+}
+
+@font-face {
+    font-family: Quiksand;
+    src: url('../fonts/Quicksand-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: PoiretOne;
+    src: url('../fonts/PoiretOne-Regular.ttf');
+}
+
+:root {
+    --primary-color: rgb(194, 6, 116);
+    --blue-color: rgb(16, 182, 219);
+    --purple-color: rgb(196, 53, 218);
+    --pink-color: rgb(232, 103, 191);
+    --text-color: rgb(52, 52, 52);
+    --grey-color: #eee;
+    --red-color: rgb(221, 15, 80);
+    --grey-color-dark: #ccc;
+}
+
+body {
+    font-family: Quiksand;
+    box-sizing: border-box;
+    width: 100vw;
+    overflow: hidden;
+}

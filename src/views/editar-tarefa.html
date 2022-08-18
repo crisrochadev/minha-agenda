@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nova Tarefa</title>
+    <link rel="stylesheet" href="../assets//css/main.css">
+  </head>
+  <body onload="initEditTask()">
+    <div class="frame"></div>
+
+    <div class="new_task_container">
+      <div class="menu_top">
+        <input id="date" type="date">
+        <input id="time" type="time">
+        
+        <div id="select_category" class="select">
+          <p id="select_category_span"></p>
+        </div>
+        
+      <button id="saveEditTask" class="btn_save"><i class="fas fa-save"></i></button>
+      </div>
+      <div id="teste"></div>
+      <div id="editor_content">
+        <div id="toolbar"></div>
+        <iframe id="editor" name="vdre_editor" class="editor"></iframe>
+      </div>
+      
+    </div>
+    <script src="../scripts/index.js"></script>
+    <script>
+      const selectCategory = document.querySelector("#select_category")
+      const spanSelect = document.querySelector("#select_category_span")
+      spanSelect.addEventListener("mouseover",() => {
+        document.querySelector("#doc_select").classList.add("doc_select");
+      })
+      let newTask = {
+        content:null,
+        date:null,
+        time:null,
+        category:null,
+        completed:0,
+        id: null
+      }
+      document.querySelector("#date").addEventListener("change",(e) => newTask.date = e.target.value);
+      document.querySelector("#time").addEventListener("change",(e) => newTask.time = e.target.value);
+  
+      ipcRenderer.invoke("get-categories","all")
+      .then(res => {
+        const docSelect = createNewElement("div",{
+          class:"doc_select_hidden",
+          id:"doc_select"
+        },null,{
+          mouseleave:(e) => e.target.classList.remove("doc_select"),
+        });
+        res.forEach(item => {
+          if(item.selected)  spanSelect.innerHTML = `<div style="${item.style}"><i class="fas fa-${item.icon}"></i><span>${item.name}</span></div>`
+        docSelect.appendChild(createNewElement("button",{
+          class:"item_hidden",
+          style:item.style
+        }, `<i class="fas fa-${item.icon}"></i><span>${item.name}</span>`,{
+          click: () => {
+            newTask.category = item.id
+            spanSelect.innerHTML = `<div style="${item.style}"><i class="fas fa-${item.icon}"></i><span>${item.name}</span></div>`
+          }
+        }));
+        })
+        selectCategory.appendChild(docSelect)
+      })
+    </script>
+    
+    <script src="../scripts/vdreditor.js"></script>
+  </body>
+</html>

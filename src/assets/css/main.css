@@ -1,0 +1,185 @@
+@import url('../fontawesome/css/all.min.css');
+@import url('./root.css');
+@import url('./nova-tarefa.css');
+@import url('./editar-tarefa.css');
+@import url('./home.css');
+
+.frame {
+    width: 100vw;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.frame .title_frame {
+    display: flex;
+    padding-left: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    width: calc(100% - 60px)
+}
+
+.frame .title_frame h1 {
+    font-size: 0.7rem;
+    font-family: Quiksand;
+    font-weight: 900;
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.frame .title_frame span {
+    display: inline-block;
+    background-color: var(--primary-color);
+    font-size: 0.5rem;
+    color: #fff;
+    padding: 3px 10px 0;
+    border-radius: 9px;
+    height: 16px;
+}
+
+.frame .menu_frame {
+    width: 70px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+.frame .menu_frame li {
+    font-size: 6px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+
+
+.frame .menu_frame li:focus {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.9);
+}
+
+.frame .menu_frame li:first-child i {
+    display: block !important;
+    margin-top: -3px !important;
+}
+
+.frame .menu_frame li:nth-child(2) i {
+    display: block !important;
+    /* margin-left: 1px !important;
+    margin-top: -1px !important; */
+}
+
+.frame .menu_frame li:last-child i {
+    display: block !important;
+    margin-left: 1px !important;
+    margin-top: 0.1em !important;
+}
+
+.frame .menu_frame li:first-child {
+    background-color: var(--pink-color);
+    border: 1px solid var(--pink-color)
+}
+
+.frame .menu_frame li:nth-child(2) {
+    background-color: var(--blue-color);
+    border: 1px solid var(--blue-color)
+}
+
+.frame .menu_frame li:last-child {
+    background-color: var(--purple-color);
+    border: 1px solid var(--purple-color)
+}
+
+.frame .menu_frame li:hover {
+    color: var(--primary-color);
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+}
+
+.main_container {
+    width: 100%;
+    height: calc(100vh - 30px);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 75px 1fr;
+
+}
+
+.nav_menu {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.nav_menu ul li {
+    width: 100%;
+
+}
+
+.nav_menu ul {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto;
+    justify-content: start;
+    align-items: space-around;
+    border-right: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.nav_menu ul button {
+    width: 40px;
+    height: 40px;
+    opacity: .8;
+    background-color: var(--blue-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 22px;
+    color: var(--primary-color);
+}
+
+.nav_menu ul button:hover {
+    opacity: 1;
+}
+
+.nav_menu ul button:focus {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+.nav_menu ul li span {
+    margin-left: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.section_main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+}

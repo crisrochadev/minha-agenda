@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Controle</title>
+    <link rel="stylesheet" href="../assets//css/main.css">
+    <link href='../../node_modules/fullcalendar/main.css' rel='stylesheet' />
+    <script src='../../node_modules/fullcalendar/main.js'></script>
+
+
+</head>
+
+<body onload="initIndex();">
+    <div class="frame"></div>
+    <div id="app">
+        <div class="aside_menu">
+            <ul>
+                <li><button title="Dashboard" onclick="openDashboard('painel')"><i class="fas fa-home"></i></button>
+                </li>
+                <li><button title="Adicionar Novo" onclick="openTaks('lista-tarefas')"><i
+                            class="fas fa-plus"></i></button>
+                    <div id="menu_add_new">
+                        <ul>
+                            <li><button>Nova Tarefa</button></li>
+                            <li><button>Nova Despesa</button></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><button title="Todas as Tarefas" onclick="openDashboard('lista-tarefas')"><i
+                            class="fas fa-tasks"></i></button></li>
+                <li><button title="Agenda" onclick="openSchedule()"><i class="fas fa-calendar"></i></button></li>
+                <li><button title="Finanças" onclick="openSchedule()"><i class="fas fa-badge-dollar"></i></button></li>
+                <li><button title="Configurações" onclick="setConfig()"><i class="fas fa-cogs"></i></button></li>
+            </ul>
+        </div>
+        <div id="main"></div>
+    </div>
+
+    <script>
+        function initIndex() {
+            const pageView = localStorage.getItem('page-view');
+            if (pageView) openDashboard(pageView);
+        }
+
+
+        async function openDashboard(page) {
+            console.log(page)
+
+            console.log(page)
+            let url = './' + page + '.html';
+            const xml = new XMLHttpRequest();
+            xml.onreadystatechange = async function () {
+                if (this.readyState == 4 && xml.status == 200) {
+                    const text = xml.responseText;
+                    document.getElementById('main').innerHTML = xml.responseText
+
+                }
+            };
+
+            xml.open('POST', url, false);
+            xml.send();
+            if (page == "lista-tarefas") listTaskFunctions()
+            init();
+
+            localStorage.setItem('page-view', page);
+        }
+    </script>
+    <script src="../scripts/index.js"></script>
+    <script>
+        const list_tasks = document.getElementById("list_tasks")
+
+        function listTaskFunctions() {
+            const listMenuTasks = document.querySelectorAll(".menu_tasks  ul  li")
+
+            listMenuTasks.forEach(btn => {
+                const arg = btn.getAttribute('data-container')
+                btn.addEventListener('click', () => openContainer(arg));
+            })
+            const allTasksContainer = document.querySelectorAll('.task_container');
+
+            const displayTasks = localStorage.getItem('show_tasks');
+            const allTasksButtons = document.querySelectorAll('.menu_tasks > ul > li');
+            function disableAllContainersTasks(cnt) {
+                allTasksContainer.forEach(taskContainer => {
+                    const classTaskContainer = taskContainer.getAttribute('class')
+                    if (!classTaskContainer.includes(cnt)) {
+
+                        taskContainer.setAttribute('data-display', 'hidden');
+                        setTimeout(() => {
+                            taskContainer.style.display = 'none';
+                        }, 500);
+                    }
+                })
+
+                allTasksButtons.forEach(button => {
+                    const classTaskButton = button.getAttribute('data-container')
+                    if (!classTaskButton.includes(cnt)) {
+                        button.classList.remove('active')
+                    }
+                })
+
+            }
+            function openContainer(cnt) {
+                disableAllContainersTasks(cnt)
+                document.querySelector('li[data-container=' + cnt + ']').classList.add('active');
+                const el = document.querySelector(`.${cnt}`)
+                localStorage.setItem("task_visibility", cnt);
+                el.setAttribute('data-display', 'show');
+                const classTaskContainer = el.getAttribute('class')
+                if (classTaskContainer.includes(cnt)) localStorage.setItem('show_tasks', classTaskContainer)
+                setTimeout(() => {
+                    el.style.display = 'block';
+                }, 500);
+            }
+            const taskVisibility = localStorage.getItem("task_visibility");
+            if (taskVisibility) {
+                //     const el =  document.querySelector(`.${taskVisibility}`)a
+                //     el.setAttribute("data-display","show")
+                //     setTimeout(() => {
+                //     el.style.display='block';
+                // },500);
+                openContainer(taskVisibility)
+            }
+            // console.log(taskVisibility);
+        }
+    </script>
+</body>
+
+</html>
